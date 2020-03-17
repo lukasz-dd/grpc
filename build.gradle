@@ -1,0 +1,25 @@
+plugins {
+    id 'org.springframework.boot' version '2.2.2.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+    id 'java'
+    id 'idea'
+}
+
+group 'org.dixa'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = JavaVersion.VERSION_13
+
+repositories {
+    mavenCentral()
+}
+
+ext.depVersions = [
+        'GRPC'  : '1.25.0',
+        'SPRING': '2.2.2.RELEASE',
+        'GRPC_SPRING': '2.6.1.RELEASE',
+        'MODEL_MAPPER': '2.3.6'
+]
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
