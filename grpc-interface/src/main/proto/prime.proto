@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package dixa;
+
+option java_package = "com.dixa.prime";
+option java_multiple_files = true;
+
+message PrimeNumberRequest {
+    int32 value = 1;
+}
+
+message PrimeNumberResponse {
+    string calculatedValues = 1;
+}
+
+message PrimeNumberIntResponse {
+    int32 calculatedValues = 1;
+}
+
+service PrimesService {
+    rpc CalculatePrimes (PrimeNumberRequest) returns (stream PrimeNumberIntResponse){}
+}
