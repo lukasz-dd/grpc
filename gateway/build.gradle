@@ -1,0 +1,38 @@
+plugins {
+    id 'org.springframework.boot'
+    id 'io.spring.dependency-management'
+    id 'idea'
+    id 'java'
+}
+
+group 'org.dixa'
+version '0.0.1-SNAPSHOT'
+sourceCompatibility = JavaVersion.VERSION_13
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile project(':grpc-interface')
+
+    compile "org.springframework.boot:spring-boot-starter:${depVersions.SPRING}"
+    compile "org.springframework.boot:spring-boot-starter-web:${depVersions.SPRING}"
+    compile "net.devh:grpc-client-spring-boot-starter:${depVersions.GRPC_SPRING}"
+
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
+    testCompile "io.grpc:grpc-testing:${depVersions.GRPC}"
+    testCompile "org.mockito:mockito-junit-jupiter:3.3.0"
+    testImplementation("io.grpc:grpc-testing")
+
+
+}
+
+tasks.test {
+    useJUnitPlatform()
+}
