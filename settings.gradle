@@ -1,0 +1,5 @@
+rootProject.name = 'dixa-grpc'
+include 'grpc-interface'
+include 'calulcate'
+include 'gateway'
+
